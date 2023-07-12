@@ -48,91 +48,71 @@ export const VercelInviteUserEmail = ({
 
   return (
     <Html>
-      <Head />
+      <Head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
       <Preview>{previewText}</Preview>
       <Tailwind>
         <Body className="bg-white my-auto mx-auto font-sans">
-          <Container className="border border-solid border-[#eaeaea] rounded my-[40px] mx-auto p-[20px] w-[465px]">
+          <Container
+            className="border border-solid border-[#eaeaea] rounded my-[40px] mx-auto p-[20px] w-[465px]"
+            style={container}
+          >
             <Section className="mt-[32px]">
               <Img
-                src={`${baseUrl}/static/vercel-logo.png`}
-                width="40"
-                height="37"
-                alt="Vercel"
+                src={`${baseUrl}/static/Devbox-logo.png`}
                 className="my-0 mx-auto"
               />
             </Section>
-            <Heading className="text-black text-[24px] font-normal text-center p-0 my-[30px] mx-0">
-              Join <strong>{teamName}</strong> on <strong>Vercel</strong>
+            <Heading
+              className="text-black text-[24px] font-normal text-center p-0 my-[20px] mx-0"
+              style={{ fontFamily: "'Roboto', sans-serif" }}
+            >
+              <strong style={{ display: "inline" }}>
+                Welcome to{" "}
+                <Img
+                  src={`${baseUrl}/static/devbox-name-logo.png`}
+                  width="130"
+                  height="18.66"
+                  style={{ display: "inline", verticalAlign: "middle" }}
+                />
+              </strong>
             </Heading>
-            <Text className="text-black text-[14px] leading-[24px]">
-              Hello {username},
+            <Text className="text-black text-[16px] leading-[24px]">
+              Dear {username},
+              <br />
+              <br />
+              Your project <strong>project name</strong> has been approved and
+              will be managed by DevBox Management System.
+              <br />
+              <br />
+              Currently, your project is in the <strong>Initiate</strong> phase,
+              which means we will collect the base information and the initial
+              business impact in order to continue with the next phase.
+              <br />
+              <br />
+              Please, <strong>tell us about your project</strong>.
             </Text>
-            <Text className="text-black text-[14px] leading-[24px]">
-              <strong>bukinoshita</strong> (
-              <Link
-                href={`mailto:${invitedByEmail}`}
-                className="text-blue-600 no-underline"
-              >
-                {invitedByEmail}
-              </Link>
-              ) has invited you to the <strong>{teamName}</strong> team on{" "}
-              <strong>Vercel</strong>.
-            </Text>
-            <Section>
-              <Row>
-                <Column align="right">
-                  <Img
-                    className="rounded-full"
-                    src={userImage}
-                    width="64"
-                    height="64"
-                  />
-                </Column>
-                <Column align="center">
-                  <Img
-                    src={`${baseUrl}/static/vercel-arrow.png`}
-                    width="12"
-                    height="9"
-                    alt="invited you to"
-                  />
-                </Column>
-                <Column align="left">
-                  <Img
-                    className="rounded-full"
-                    src={teamImage}
-                    width="64"
-                    height="64"
-                  />
-                </Column>
-              </Row>
-            </Section>
+
             <Section className="text-center mt-[32px] mb-[32px]">
               <Button
                 pX={20}
                 pY={12}
-                className="bg-[#000000] rounded text-white text-[12px] font-semibold no-underline text-center"
+                className="bg-[#000000] text-white text-[15px] no-underline text-center"
                 href={inviteLink}
+                style={button}
               >
-                Join the team
+                Open SDD Online
               </Button>
             </Section>
-            <Text className="text-black text-[14px] leading-[24px]">
-              or copy and paste this URL into your browser:{" "}
-              <Link href={inviteLink} className="text-blue-600 no-underline">
-                {inviteLink}
-              </Link>
-            </Text>
-            <Hr className="border border-solid border-[#eaeaea] my-[26px] mx-0 w-full" />
-            <Text className="text-[#666666] text-[12px] leading-[24px]">
-              This invitation was intended for{" "}
-              <span className="text-black">{username} </span>.This invite was
-              sent from <span className="text-black">{inviteFromIp}</span>{" "}
-              located in{" "}
-              <span className="text-black">{inviteFromLocation}</span>. If you
-              were not expecting this invitation, you can ignore this email. If
-              you are concerned about your account's safety, please reply to
-              this email to get in touch with us.
+            <Section className="my-[16px]"></Section>
+            <Text className="text-black text-[16px] leading-[24px]">
+              Regards,
+              <br />
+              DevBox Management System
             </Text>
           </Container>
         </Body>
@@ -142,3 +122,15 @@ export const VercelInviteUserEmail = ({
 };
 
 export default VercelInviteUserEmail;
+
+const container = {
+  backgroundColor: "#f8f8f8",
+  boxShadow: "0 0 2px rgba(0, 0, 0, 0.15)",
+};
+
+const button = {
+  backgroundImage: "linear-gradient(90deg, #005bea, #00c6fb)",
+  width: "150px",
+  height: "22px",
+  fontFamily: "'Roboto', sans-serif",
+};
